@@ -1,0 +1,372 @@
+:root{
+  --bg:#0b0c10;
+  --panel:#12141c;
+  --text:#ffffff;
+  --muted:#b8b8b8;
+  --line:#5d77df;
+  --accent:#033c91;
+}
+
+
+
+
+*{ box-sizing:border-box }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:24px;
+  filter: drop-shadow(0 0 50px rgba(0, 170, 255, 0.4));
+}
+
+
+h1{ margin:0; font-size:42px }
+.tag{ color:var(--muted); margin:6px 0 14px }
+.tag{font-size: 25px;}
+
+h2{font-size: 32px;}
+
+
+
+.nav a{
+  margin-right:12px;
+  padding:8px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:var(--text);
+}
+
+.card{
+  background:rgba(20, 29, 44, 0.85);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+  margin:18px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.project{
+  padding:14px 0;
+  border-top:1px solid var(--line);
+}
+.project:first-of-type{ border-top:0 }
+
+.asset-section{ margin-top:24px }
+.asset-section h3{ margin-bottom:12px }
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  gap:25px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:14px;
+  border:3px solid var(--line);
+  transition:transform 0.15s ease, border-color 0.15s ease;
+}
+
+.gallery img:hover{
+  transform:translateY(-10px);
+  border-color:var(--accent);
+}
+
+.foot{ color:var(--muted) }
+
+/* ================================
+   LIGHTBOX
+   ================================ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: background 0.2s ease;
+}
+
+
+
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  transition: transform 0.2s ease;
+  transform: scale(0.95);
+}
+
+.lightbox:not(.hidden) img {
+  transform: scale(1);
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.asset-section h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.asset-section:first-of-type {
+  margin-top: 0;
+}
+
+
+.asset-section {
+  margin-top: 3rem;
+  padding: 2rem 2rem 2.5rem;
+  background: rgba(18, 20, 28, 0.6);
+  border-top: 2px solid var(--line);
+  border-radius: 16px;
+}
+
+
+/* ================================
+   HERO STAGE (SAFE OVERLAY SYSTEM)
+   ================================ */
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: radial-gradient(circle at top, #12141c 0%, #0b0c10 70%);
+}
+
+.hero-text h1 {
+  font-size: clamp(5rem, 6vw, 5rem);
+}
+
+/* Hero image container */
+/* Ensure wrapper establishes a stacking context for overlays */
+.hero-visual {
+  position: relative;
+  max-width: 990px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;     /* IMPORTANT: stop clipping */
+}
+
+
+.hero-main {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.hero-main {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+
+  box-shadow:
+    0 0 70px 20px rgba(0, 180, 255, 0.45),
+    0 0 120px 45px rgba(0, 140, 255, 0.35),
+    0 0 160px 70px rgba(0, 200, 255, 0.25);
+
+  animation: heroGlowPulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowPulse {
+  0% {
+    box-shadow:
+      0 0 60px 18px rgba(0, 180, 255, 0.35),
+      0 0 100px 40px rgba(0, 140, 255, 0.25),
+      0 0 140px 60px rgba(0, 200, 255, 0.2);
+  }
+
+  100% {
+    box-shadow:
+      0 0 90px 25px rgba(0, 180, 255, 0.55),
+      0 0 140px 55px rgba(0, 140, 255, 0.45),
+      0 0 190px 85px rgba(0, 200, 255, 0.35);
+  }
+}
+
+
+
+.hero-overlay {
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+  width: clamp(110px, 10vw, 140px); /* THIS controls the size */
+  z-index: 12; /* CHANGE: Higher value to ensure it's on top */
+}
+
+/* Optional: keep existing position presets as-is */
+.overlay-top-right {
+  top: -30px;
+  right: 55px;
+  opacity: 1;
+  z-index: 10;
+}
+
+.overlay-bottom-left {
+  bottom: 32px;
+  left: 32px;
+  opacity: 1;
+  z-index: 10;
+}
+
+.overlay-center {
+  top: 50%;
+  left: 50%;
+  margin-left: -120px;
+  margin-top: -120px;
+  width: 240px;
+  z-index: 10;
+}
+
+.overlay-mid-right {
+  top: 50%;
+  right: -20px;
+  margin-top: -120px;
+  z-index: 10;
+}
+
+.btn {
+  color: white;               /* Text color */
+  background-color: #007bff;  /* Nice blue background */
+  padding: 10px 18px;         /* Some padding to make it look like a button */
+  border-radius: 6px;         /* Rounded corners */
+  text-decoration: none;      /* Remove underline */
+  display: inline-block;      /* Allow padding */
+  font-weight: bold;          /* Make text stand out */
+  transition: background-color 0.3s ease;
+}
+
+
+.btn:hover {
+  background-color:var(--accent); /* Darker blue on hover */
+  cursor: pointer;
+}
+
+
+
+/* ----- OPTIONAL FLOAT ANIMATION ----- */
+/* Only apply via .floaty class */
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
+.floaty {
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+/* ================================
+   SPLIT LAYOUT
+   ================================ */
+
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.split.reverse {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.split-text {
+  max-width: 520px;
+}
+
+.split-visual img {
+  width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* ================================
+   LAYERED VISUALS
+   ================================ */
+
+.layered {
+  position: relative;
+}
+
+.layer-main {
+  width: 100%;
+  border-radius: 22px;
+}
+
+.layer-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.project-description {
+  max-width: 70ch;
+  margin: 0.5rem 0 1.25rem;
+  opacity: 0.85;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+
+/* ================================
+   HOMEPAGE TWEAKS
+   ================================ */
+
+.hero + .wrap .card {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.hero + .wrap {
+  max-width: 1200px;
+}
+
+.contact-list {
+  max-width: 480px;
+  margin: 0 auto;
+
+
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

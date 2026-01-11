@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asset Collection | DrSkive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="mvlogo2.png" sizes="32x32">
+</head>
+
+<div id="lightbox" class="lightbox hidden">
+  <img id="lightbox-img" />
+</div>
+
+  
+<body>
+
+<header class="wrap">
+  <h1>MY ASSETS</h1>
+  <p class="tag">Organised by project</p>
+
+  <nav class="nav">
+  <a class="btn" href="index.html">Home</a>
+  <a class="btn" href="assets.html">Asset Collection</a>
+</nav>
+
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <div id="asset-root"></div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <small>© <span id="y"></span> DrSkive</small>
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  async function loadAssets() {
+    const root = document.getElementById("asset-root");
+    const res = await fetch("assets/assets.json?v=2");
+    const projects = await res.json();
+
+const projectsWithAudio = {
+  "fast-food-fighter": ["theme.wav"],
+  "BASTILLE": [
+    "GreedVocalRefs_1.mp3",
+    "Bastille_demo_theme.wav"
+    
+  ]
+};
+
+const projectDescriptions = {
+  "fast-food-fighter": "A fast-paced arcade boss rush game themed around fast food mascots!",
+  "nooms-moon-train": "All aboard the Ol' Michael! Noom's Moon Train is a mental world I created for the purpose of exploring wacky and cartoony character designs.",
+  "BASTILLE": "BASTILLE is an experimental sci-fi adventure project exploring atmosphere, narrative, and political themes.This is a collaborative project created by me and two others!"
+};
+
+
+
+    for (const [title, folder] of Object.entries(projects)) {
+      const section = document.createElement("section");
+      section.className = "asset-section";
+
+      const h3 = document.createElement("h3");
+      h3.textContent = title;
+      section.appendChild(h3);
+
+      if (projectDescriptions[folder]) {
+        const desc = document.createElement("p");
+        desc.className = "project-description";
+        desc.textContent = projectDescriptions[folder];
+        section.appendChild(desc);
+      }
+
+
+     if (projectsWithAudio[folder]) {
+  const audioWrap = document.createElement("div");
+  audioWrap.className = "audio-player";
+
+  for (const file of projectsWithAudio[folder]) {
+    const audio = document.createElement("audio");
+    audio.controls = true;
+    audio.src = `assets/${folder}/${file}`;
+    audioWrap.appendChild(audio);
+  }
+
+  section.appendChild(audioWrap);
+}
+
+
+      const gallery = document.createElement("div");
+      gallery.className = "gallery";
+      section.appendChild(gallery);
+
+      root.appendChild(section);
+
+      const exts = ["png", "jpg", "jpeg", "webp", "gif"];
+
+      for (let i = 1; i <= 50; i++) {
+        for (const ext of exts) {
+            const box = document.createElement("div");
+          box.className = "asset-box";
+
+          const img = new Image();
+          img.src = `assets/${folder}/${i}.${ext}`;
+          img.loading = "lazy";
+          img.onerror = () => box.remove();
+          img.classList.add("project-image");
+
+          box.appendChild(img);
+          gallery.appendChild(box);
+
+        }
+      }
+    }
+  }
+
+  loadAssets();
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.addEventListener("click", e => {
+    const img = e.target.closest(".project-image");
+    if (img) {
+      lightboxImg.src = img.src;
+      lightbox.classList.remove("hidden");
+    } else if (e.target === lightbox) {
+      lightbox.classList.add("hidden");
+      lightboxImg.src = "";
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      lightbox.classList.add("hidden");
+      lightboxImg.src = "";
+    }
+  });
+</script>
+  
+</body>
+</html>
