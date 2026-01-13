@@ -53,14 +53,40 @@ h2{font-size: 32px;}
   box-shadow:0 10px 30px rgba(0,0,0,0.35);
 }
 
-.project{
-  padding:14px 0;
-  border-top:1px solid var(--line);
+#projects {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
-.project:first-of-type{ border-top:0 }
 
-.asset-section{ margin-top:24px }
-.asset-section h3{ margin-bottom:12px }
+.project {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+
+
+.project h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.project p {
+  margin: 0 0 1.2rem 0;
+  max-width: 70%;
+  color: #bdbdbd;
+}
+
+.project iframe {
+  width: 100%;
+  height: 650px;
+  border: 0;
+}
+
+
+
 
 .gallery{
   display:grid;
@@ -345,7 +371,7 @@ h2{font-size: 32px;}
   background: none;
   border: none;
   box-shadow: none;
-  padding: 1rem 0;
+  padding: 5rem 0;
   margin: 0;
 }
 

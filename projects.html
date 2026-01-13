@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MorendoVivo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="mvlogo2.png" sizes="32x32">
+</head>
+   <div class="hero-text">
+      <h1>Project Collection</h1>
+      <p class="tag">Collection of long form projects</p>
+
+      <nav class="nav">
+        <a class="btn" href="assets.html">Asset Collection</a>
+        <a class="btn" href="index.html">Home</a>
+      </nav>
+    </div>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 3rem 1.5rem;
+      background: #0b0c10;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    #projects {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      filter: drop-shadow(0 0 50px rgba(0, 170, 255, 0.2));  
+    }
+
+    .project h2 {
+      margin: 0 0 0.8rem 0;
+      font-size: 2rem;
+      font-weight: 750;
+      
+    }
+
+    .project p {
+      margin: 0 0 1.5rem 0;
+      max-width: 70%;
+      color: #bdbdbd;
+      line-height: 1.5;
+    }
+
+    .project iframe {
+      width: 75%;
+      height: 700px;
+      border: 0;
+      background: #000;
+    }
+
+    @media (max-width: 768px) {
+      .project iframe {
+        height: 520px;
+      }
+
+      .project p {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="projects"></div>
+
+  <script>
+    const projects = [
+      {
+        title: "Mood and Colour Exploration",
+        description: "This was from a college project based around lighting, staging and how altering these could effect a viewers emotion.",
+        src: "./WorkExample_1.pdf"
+      },
+      {
+        title: "Cuphead Character Project",
+        description: "This was a smaller college project where I delved into the artstyle of 'Cuphead', creating my own character designs and colour schemes based on the 1930s rubber hose animation style.",
+        src: "./Cuphead_Project.pdf"
+      }
+    ];
+
+    const container = document.getElementById("projects");
+
+    projects.forEach(project => {
+      const section = document.createElement("section");
+      section.className = "project";
+
+      section.innerHTML = `
+        <h2>${project.title}</h2>
+        <p>${project.description}</p>
+        <iframe
+          src="${project.src}"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      `;
+
+      container.appendChild(section);
+    });
+  </script>
+
+</body>
+</html>
