@@ -92,15 +92,18 @@
       const section = document.createElement("section");
       section.className = "project";
 
-      section.innerHTML = `
-        <h2>${project.title}</h2>
-        <p>${project.description}</p>
-        <iframe
-          src="${project.src}"
-          loading="lazy"
-          allowfullscreen>
-        </iframe>
-      `;
+     section.innerHTML = `
+  <h2>${project.title}</h2>
+  <p>${project.description}</p>
+
+  <iframe src="${project.src}" loading="lazy"></iframe>
+
+  <div class="project-actions">
+    <a class="btn" href="${project.src}" target="_blank" rel="noopener">
+      Open full screen
+    </a>
+  </div>
+`;
 
       container.appendChild(section);
     });
