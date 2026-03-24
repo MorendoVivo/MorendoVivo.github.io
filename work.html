@@ -69,14 +69,18 @@
 
             <div class="client-card" data-theme="jumpgame">
             <div class="client-main">
-                <img src="assets/images/mountaingame.webp" alt="City of Vice logo">
+                <img src="assets/images/mountaingame.webp" alt="Mountain Game logo">
                 <div class="client-info">
                     <h2>Climb A MOUNTAIN!</h2>
                     <p>Expansive obby scenery</p>
                 </div>
             </div>
             <div class="client-gallery">
-                <img src="assets/images/COV/COV1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain2.png" alt="Screenshot 2" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain3.png" alt="Screenshot 3" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain4.png" alt="Screenshot 4" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain5.png" alt="Screenshot 5" onclick="openLightbox(this)">
             </div>
         </div>
 
@@ -136,8 +140,9 @@
         const themeBackgrounds = {
             'city-of-vice': 'url("assets/images/COV/COV1.png")',
             'the-basement': 'url("assets/images/BASEMENT/BASEMENT1.png")',
+            'jumpgame': 'url("assets/images/MOUNTAIN/mountain1.png")',
             'default': 'none',
-            'jumpgame': 'url("assets/games/ELLISTESTRENDER.png")',
+
         };
 
 let currentTheme = null;
@@ -149,7 +154,7 @@ function switchTheme(theme) {
     theme = theme || 'default';
     const image = themeBackgrounds[theme] || themeBackgrounds.default;
 
-    page.classList.remove('city-of-vice', 'the-basement', 'default', 'jumpgame'); // 👈 remove all themes
+    page.classList.remove('city-of-vice', 'the-basement', 'jumpgame', 'default'); // 👈 remove all themes
     page.classList.add(theme);
 
     if (image === 'none') {
