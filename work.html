@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | MorendoVivo</title>
+    <link rel="icon" type="image/x-icon" href="mvlogo2.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="work-page">
+    <div class="work-bg work-bg-front"></div>
+    <div class="work-bg work-bg-back"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="mvlogo2.png" alt="MorendoVivo logo" class="site-logo">
+                <span>MorendoVivo</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="work.html">Work</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="work-hero">
+        <div class="work-hero-inner">
+            <h1>Client Work</h1>
+            <p>We've created immersive environments and experiences for various clients</p>
+        </div>
+    </header>
+
+    <section class="client-work">
+        <div class="client-card" data-theme="city-of-vice">
+            <div class="client-main">
+                <img src="assets/work/CityOfVice/COVlogo.png" alt="City of Vice logo">
+                <div class="client-info">
+                    <h2>City Of Vice</h2>
+                    <p>Miami map creation and asset design</p>
+                    <a href="https://www.roblox.com/games/119963002291522/City-of-Vice" target="_blank" class="cta">Play Experience</a>
+                </div>
+            </div>
+            <div class="client-gallery">
+                <img src="assets/images/COV/COV1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+                <img src="assets/images/COV/COV2.png" alt="Screenshot 2" onclick="openLightbox(this)">
+                <img src="assets/images/COV/COV3.png" alt="Screenshot 3" onclick="openLightbox(this)">
+                <img src="assets/images/COV/COV4.png" alt="Screenshot 4" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+        <div class="client-card" data-theme="the-basement">
+            <div class="client-main">
+                <img src="assets/images/BASEMENT/TheBASEMENT.png" alt="Club experience screenshot">
+                <div class="client-info">
+                    <h2>Club Experience</h2>
+                    <p>Lighting, Atmosphere, Layout</p>
+                    <a href="https://www.roblox.com/games/123352211686340/The-Basement" target="_blank" class="cta">Play Experience</a>
+                </div>
+            </div>
+            <div class="client-gallery">
+                <img src="assets/images/BASEMENT/BASEMENT1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+                <img src="assets/images/BASEMENT/BASEMENT2.png" alt="Screenshot 2" onclick="openLightbox(this)">
+                <img src="assets/images/BASEMENT/BASEMENT3.png" alt="Screenshot 3" onclick="openLightbox(this)">
+                <img src="assets/images/BASEMENT/BASEMENT4.png" alt="Screenshot 4" onclick="openLightbox(this)">
+                <img src="assets/images/BASEMENT/BASEMENT5.png" alt="Screenshot 5" onclick="openLightbox(this)">
+                <!-- Gallery images would go here when available -->
+            </div>
+        </div>
+
+            <div class="client-card" data-theme="jumpgame">
+            <div class="client-main">
+                <img src="assets/images/mountaingame.webp" alt="City of Vice logo">
+                <div class="client-info">
+                    <h2>Climb A MOUNTAIN!</h2>
+                    <p>Expansive obby scenery</p>
+                </div>
+            </div>
+            <div class="client-gallery">
+                <img src="assets/images/COV/COV1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img">
+    </div>
+
+    <script>
+    function openLightbox(img){
+        document.getElementById("lightbox").style.display = "flex";
+        document.getElementById("lightbox-img").src = img.src;
+    }
+
+    function closeLightbox(){
+        document.getElementById("lightbox").style.display = "none";
+    }
+    </script>
+
+    <script>
+        // Navbar hide on scroll down, show on scroll up
+        const navbar = document.querySelector('.navbar');
+        let lastScrollY = 0;
+
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+            
+            // Add backdrop effect when scrolled
+            if (currentScrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Hide navbar when scrolling down, show when scrolling up
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down
+                navbar.classList.add('hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('hidden');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Section theme background based on visible card with smooth image crossfade
+        const page = document.querySelector('body.work-page');
+        const cards = document.querySelectorAll('.client-card');
+        const frontBg = document.querySelector('.work-bg-front');
+        const backBg = document.querySelector('.work-bg-back');
+        let activeBg = frontBg;
+        let inactiveBg = backBg;
+
+        const themeBackgrounds = {
+            'city-of-vice': 'url("assets/images/COV/COV1.png")',
+            'the-basement': 'url("assets/images/BASEMENT/BASEMENT1.png")',
+            'default': 'none',
+            'jumpgame': 'url("assets/games/ELLISTESTRENDER.png")',
+        };
+
+let currentTheme = null;
+
+function switchTheme(theme) {
+    if (theme === currentTheme) return; // 👈 STOP spam switching
+    currentTheme = theme;
+
+    theme = theme || 'default';
+    const image = themeBackgrounds[theme] || themeBackgrounds.default;
+
+    page.classList.remove('city-of-vice', 'the-basement', 'default', 'jumpgame'); // 👈 remove all themes
+    page.classList.add(theme);
+
+    if (image === 'none') {
+        activeBg.classList.remove('visible');
+        inactiveBg.classList.remove('visible');
+        return;
+    }
+
+    inactiveBg.style.backgroundImage = image;
+    inactiveBg.classList.add('visible');
+    activeBg.classList.remove('visible');
+
+    setTimeout(() => {
+        const temp = activeBg;
+        activeBg = inactiveBg;
+        inactiveBg = temp;
+    }, 800); // match CSS exactly
+}
+        const themeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+                    switchTheme(entry.target.dataset.theme);
+                }
+            });
+        }, { threshold: [0.35] });
+
+        cards.forEach(card => themeObserver.observe(card));
+
+        // Initialize with first theme (or default)
+        switchTheme(cards.length ? cards[0].dataset.theme : 'default');
+    </script>
+</body>
+</html>

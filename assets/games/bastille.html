@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASTILLE | MorendoVivo</title>
+    <link rel="icon" type="image/x-icon" href="/mvlogo2.png">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../mvlogo2.png" alt="MorendoVivo logo" class="site-logo">
+                <span>MorendoVivo</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../work.html">Work</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <header class="game-hero">
+        <img src="ELLISTESTRENDER.png" alt="Bastille game hero image" class="game-hero-img">
+        <div class="game-hero-overlay"></div>
+        <div class="game-hero-content">
+            <h1>BASTILLE</h1>
+            <p>Employee 883,931,621</p>
+        </div>
+    </header>
+
+    <p class="status">Status: Active</p>
+
+    <section class="game-description">
+        <h3 class="section-label">Overview</h3>
+        <p class="typewriter">
+        Welcome to MegaCity D-07, a vast floating metropolis built by the BASTILLE Corporation after the Great Flood. As a newly hired BASTILLE employee, you uncover the unsettling truths beneath the company's facade.
+        </p>
+      </section>
+
+    <section class="system-log">
+        <h3>System Log</h3>
+          <p class="typewriter">Access granted.</p>
+          <p class="typewriter">Employee record detected.</p>
+          <p class="typewriter">Welcome, Employee 883,931,621.</p>
+    </section>
+
+<section class="game-gallery">
+        <h3 class="section-label">Visual Records</h3>
+        <div class="gallery-grid">
+            <img src="../../assets/images/Bastille1.png" alt="Bastille screenshot 1" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille2.png" alt="Bastille screenshot 2" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille3.png" alt="Bastille screenshot 3" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille4.png" alt="Bastille screenshot 4" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille5.png" alt="Bastille screenshot 5" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille6.png" alt="Bastille screenshot 6" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille7.png" alt="Bastille screenshot 7" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille8.png" alt="Bastille screenshot 8" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille9.png" alt="Bastille screenshot 9" onclick="openLightbox(this)">
+            <img src="../../assets/images/Bastille10.png" alt="Bastille screenshot 10" onclick="openLightbox(this)">
+        </div>
+    </section>
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
+
+<section class="game-cta">
+
+
+<a href="https://www.roblox.com/games/10746770962/BASTILLE" target="_blank">
+Launch Experience
+</a>
+
+</section>
+
+<script>
+function openLightbox(img){
+document.getElementById("lightbox").style.display = "flex";
+document.getElementById("lightbox-img").src = img.src;
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+<script>
+// Navbar hide on scroll down, show on scroll up
+const navbar = document.querySelector('.navbar');
+let lastScrollY = 0;
+
+window.addEventListener('scroll', function() {
+    const currentScrollY = window.scrollY;
+    
+    // Add backdrop effect when scrolled
+    if (currentScrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    // Hide navbar when scrolling down, show when scrolling up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        navbar.classList.add('hidden');
+    } else {
+        // Scrolling up
+        navbar.classList.remove('hidden');
+    }
+    
+    lastScrollY = currentScrollY;
+});
+</script>
+
+<script>
+function typeText(element, speed = 25) {
+    const text = element.textContent;
+    element.textContent = "";
+    element.style.opacity = 1; // 👈 reveal only when typing starts
+
+    let i = 0;
+
+    function typing() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        }
+    }
+
+    typing();
+}
+
+const elements = document.querySelectorAll('.typewriter');
+
+let delay = 0;
+
+elements.forEach((el) => {
+    const textLength = el.textContent.length;
+    
+    setTimeout(() => {
+        typeText(el);
+    }, delay);
+
+    delay += textLength * 25 + 400;
+});
+</script>
+
+</body>
+</html>
