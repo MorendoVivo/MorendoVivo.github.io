@@ -15,6 +15,15 @@
 }
 
 @font-face {
+    font-family: 'Digitalt';
+    src: url('fonts/Digitalt-04no.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
     font-family: 'Times New Roman';
     src: url('fonts/times.ttf') format('truetype');
     font-weight: 400;
@@ -898,4 +907,436 @@ section {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     33% { transform: translateY(-20px) rotate(5deg); }
     66% { transform: translateY(10px) rotate(-3deg); }
+}
+
+
+/* ========================= */
+/* 📺 GREED SHOW: FULL TAKEOVER */
+/* ========================= */
+
+.greed-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    /* HARD background, no soft gradient nonsense */
+    background: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔲 GRID BACKGROUND (broadcast feel) */
+.greed-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(0,255,136,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.08) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+
+    z-index: 1;
+}
+
+/* 🟢 BIG GLOW CENTER */
+.greed-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(circle at center, rgba(0,255,136,0.25), transparent 30%);
+    z-index: 1;
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.greed-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+/* TITLE */
+.greed-title {
+    font-family: 'Neoneon', sans-serif;
+    font-size: 5rem;
+    color: #ffee00;
+
+    text-shadow:
+        0 0 20px #ffee00,
+        0 0 60px #ffee00;
+
+    margin-bottom: 10px;
+}
+
+/* SUBTEXT */
+.greed-sub {
+    color: #ffee00;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+/* BUTTON */
+.play-button {
+    padding: 22px 70px;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    background: #ffee00;
+    color: black;
+    border: none;
+
+    box-shadow:
+        0 0 20px #ffee00,
+        0 0 60px #ffee00;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+/* GREED CHARACTER */
+.greed-character {
+    position: absolute;
+
+    left: 5%;
+    top: 131px;
+    height: 600px;
+
+    transform: rotate(-5deg);
+    filter: drop-shadow(0 0 25px #ffee00);
+
+    z-index: 2;
+}
+
+.greed-character {
+    animation: bgShift 15s linear infinite;
+}
+
+.greed-plushie {
+    position: absolute;
+
+    right: 19%;
+    top: 0%;
+    height: 400px;
+
+    transform: rotate(8deg);
+
+    z-index: 16;
+}
+
+.greed-plushie2 {
+    position: absolute;
+
+    right: 2%;
+    top: 12%;
+    height: 280px;
+
+    transform: rotate(8deg);
+    transform:rotateY(180deg);
+
+    z-index: 100;
+}
+
+
+/* ========================= */
+/* 📢 MASSIVE TICKER BAR */
+/* ========================= */
+
+.ticker {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20vh; /* 🔥 BIG NOW */
+
+    background: #00854796;
+    color: rgb(245, 209, 4);
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-top: 12px solid rgb(255, 208, 0);
+    border-bottom: 12px solid rgb(255, 208, 0);
+
+    z-index: 5;
+}
+
+/* BIG TEXT */
+.ticker-text {
+    font-family: 'Digitalt', sans-serif;
+
+    font-size: 4rem;
+    font-weight: bold;
+    white-space: nowrap;
+
+    padding-left: 100%;
+
+    animation: tickerScroll 25s linear infinite;
+}
+
+@keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+/* ========================= */
+/* 📺 LIVE BOX (BIGGER + CLEAR) */
+/* ========================= */
+
+.live-box {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+
+    width: 260px;
+    height: 220px;
+
+    background: black;
+    border: 3px solid #ffee00;
+
+    z-index: 6;
+}
+
+.live-box-header {
+    background: #d10000;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 5px;
+    
+}
+
+.live-box-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #e5ff00;
+    font-size: 5rem;
+}
+
+/* ========================= */
+/* 💰 MERCH TAG */
+/* ========================= */
+
+.merch-tag {
+    position: absolute;
+    top: 10%;
+    right: 12.2%;
+
+    background: #e5ff00;
+    color: black;
+    padding: 12px 18px;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    transform: rotate(8deg);
+
+    box-shadow: 0 0 20px #e5ff00;
+
+    z-index: 6;
+}
+
+/* ========================= */
+/* 🖼 BACKGROUND IMAGE LAYER */
+/* ========================= */
+
+.greed-bg {
+    position: absolute;
+    inset: 0;
+
+    background: url('/assets/images/greedytime.png') center/cover no-repeat;
+
+    filter: blur(5px) brightness(0.4) saturate(1.5);
+    transform: scale(1.1); /* prevents blur edges */
+
+    z-index: 0;
+}
+
+/* subtle green overlay to unify colours */
+.greed-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 255, 136, 0.15);
+}
+
+.greed-bg {
+    animation: bgShift 20s linear infinite;
+}
+
+@keyframes bgShift {
+    0% { transform: scale(1.1) translateX(0); }
+    50% { transform: scale(1.15) translateX(-10px); }
+    100% { transform: scale(1.1) translateX(0); }
+}
+
+.section-transition {
+    height: 150px;
+
+    background: linear-gradient(
+        to bottom,
+        #00000000 0%,          /* Bastille dark */
+        #001a0f 50%,     /* blend */
+        #00271598 100%     /* Greed tone */
+    );
+}
+
+/* ========================= */
+/* 🧾 FOOTER */
+/* ========================= */
+
+.site-footer {
+    background: #050505;
+    color: #dcdcdc;
+
+    padding: 60px 40px 30px;
+    margin-top: 100px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+
+    flex-wrap: wrap;
+}
+
+/* LEFT */
+.footer-logo {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* LINKS */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #bfbfbf;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* RIGHT */
+.footer-right {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.footer-small {
+    opacity: 0.5;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+}
+
+/* ========================= */
+/* 📩 CONTACT SECTION */
+/* ========================= */
+
+.contact-section {
+    max-width: 700px;
+    margin: 120px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 14px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+
+    font-family: inherit;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #00ff88; /* ties into Bastille vibe */
+}
+
+/* BUTTON */
+.contact-form button {
+    padding: 14px;
+    background: #00ff88;
+    color: black;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.contact-form button:hover {
+    transform: scale(1.05);
 }

@@ -32,7 +32,6 @@
 <div class="noom-hero-content">
 <h1>Noom's Moon Train</h1>
 <p>A surreal puzzle experience</p>
-<a href="#" class="cta">Play on Roblox</a>
 </div>
 </header>
 
@@ -40,26 +39,30 @@
 <h3 class="section-label">Overview</h3>
 
 <p>
-A strange journey aboard Noom’s Moon Train, where logic bends and reality shifts. 
-Guided by the eccentric conductor Noom, players must complete increasingly bizarre challenges while uncovering the truth hidden within the world itself.
+All aboard the Ol' Michael - proud home of the one and only… Noom!
+
+Aboard this afterlife train, test your strength and be the last player standing in these wacky and zany minigames! From chaotic coal collecting to wild obstacle courses and unpredictable twists, it's a battle for your afterlife!
 </p>
+
 </section>
+
 
 <section class="noom-gallery">
 
-<h3 class="section-label">Visual Records</h3>
+<h3 class="section-label">IMAGES!</h3>
 
 <div class="gallery-grid">
-<img src="../assets/games/noom1.jpg">
-<img src="../assets/games/noom2.jpg">
-<img src="../assets/games/noom3.jpg">
+<img src="/assets/images/NOOM/noom1.png" alt="Noom's Moon Train screenshot 1" onclick="openLightbox(this)">
+<img src="/assets/images/NOOM/noom2.png" alt="Noom's Moon Train screenshot 2" onclick="openLightbox(this)">
+<img src="/assets/images/NOOM/noom3.png" alt="Noom's Moon Train screenshot 3" onclick="openLightbox(this)">
 </div>
 
-</section>
+<div id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
 
-<section class="game-cta">
-<a href="#" target="_blank">Play Experience</a>
-</section>
+
+
 
 <script>
 // Navbar hide on scroll down, show on scroll up
@@ -88,6 +91,40 @@ window.addEventListener('scroll', function() {
     lastScrollY = currentScrollY;
 });
 </script>
+
+<script>
+function openLightbox(img){
+document.getElementById("lightbox").style.display = "flex";
+document.getElementById("lightbox-img").src = img.src;
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <h3 class="footer-logo">Morendo Vivo™</h3>
+      <p class="footer-tagline">Games and services.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/work.html">Projects</a>
+      <a href="/about.html">Contact</a>
+    </div>
+
+    <div class="footer-right">
+      <p>©2022-2026 Morendo Vivo</p>
+      <p class="footer-small">All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
 
 </body>
 </html>

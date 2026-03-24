@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Morendo Vivo</title>
+    <link rel="icon" type="image/x-icon" href="mvlogo2.png">
+    <link rel="stylesheet" href="style.css"> <!-- adjust path if needed -->
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="mvlogo2.png" alt="MorendoVivo logo" class="site-logo">
+                <span>MorendoVivo</span>
+            </a>
+            <div class="nav-links">
+                <a href="#games">Games</a>
+                <a href="about.html">About</a>
+                <a href="work.html">Work</a>
+            </div>
+        </div>
+    </nav>
+
+
+  
+  <style>
+    /* ========================= */
+    /* PAGE BASE */
+    /* ========================= */
+
+    body {
+      background: #050505;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 120px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .about-sub {
+      text-align: center;
+      opacity: 0.7;
+      margin-bottom: 80px;
+    }
+
+    /* ========================= */
+    /* 👥 TEAM GRID */
+    /* ========================= */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .member-card {
+      background: #0a0a0a;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 20px;
+      text-align: center;
+
+      transition: 0.3s;
+    }
+
+    .member-card:hover {
+      transform: translateY(-8px);
+      border-color: #00ff88;
+      box-shadow: 0 0 20px rgba(0,255,136,0.2);
+    }
+
+    .member-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .member-name {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .member-role {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      margin-bottom: 10px;
+    }
+
+    .member-desc {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    /* ========================= */
+    /* 📩 CONTACT SECTION */
+    /* ========================= */
+
+    .contact-section {
+      margin-top: 120px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      opacity: 0.7;
+      margin-bottom: 30px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px;
+      background: #0a0a0a;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+      font-family: inherit;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #00ff88;
+    }
+
+    .contact-form button {
+      padding: 14px;
+      background: #00ff88;
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="about-container">
+
+    <!-- TITLE -->
+    <h1>About Us</h1>
+    <p class="about-sub">We make games. Check them out!</p>
+
+    <!-- TEAM -->
+    <div class="team-grid">
+
+      <!-- MEMBER 1 -->
+      <div class="member-card">
+        <img src="IMG_1599.png" class="member-img">
+        <h3 class="member-name">DrSkive</h3>
+        <p class="member-role">Studio Head / Developer</p>
+        <p class="member-desc">
+          Founder of MorendoVivo, and the smartest man alive!
+        </p>
+      </div>
+
+      <!-- MEMBER 2 -->
+      <div class="member-card">
+        <img src="missknowitall.png" class="member-img">
+        <h3 class="member-name">missknowitall</h3>
+        <p class="member-role">Studio Head / Developer</p>
+        <p class="member-desc">
+          Responsible for overseeing the technical elements of our projects and ensuring everything runs smoothly.
+        </p>
+      </div>
+
+      <!-- MEMBER 3 -->
+      <div class="member-card">
+        <img src="shinzos.png" class="member-img">
+        <h3 class="member-name">shinzos_</h3>
+        <p class="member-role">Programmer / Ideas</p>
+        <p class="member-desc">
+          The guy who makes sure that we don't flop!
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CONTACT -->
+    <section class="contact-section">
+      <h2>Contact</h2>
+      <p>Got something to say? Go on then.</p>
+
+      <form action="https://formspree.io/f/mnjgeeaw" method="POST" class="contact-form">
+
+        <input type="text" name="name" placeholder="Your name" required>
+
+        <input type="email" name="email" placeholder="Your email" required>
+
+        <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+    </section>
+
+  </div>
+
+   <footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <h3 class="footer-logo">Morendo Vivo™</h3>
+      <p class="footer-tagline">Games and services.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="/work.html">Projects</a>
+      <a href="/about.html">Contact</a>
+    </div>
+
+    <div class="footer-right">
+      <p>©2022-2026 Morendo Vivo</p>
+      <p class="footer-small">All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

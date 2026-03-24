@@ -185,15 +185,17 @@ filter:brightness(1.1);
 100%{ transform:translate(-50%, -50%) translateY(0px);}
 }
 
-/* DESCRIPTION */
-.noom-description{
-max-width:800px;
-margin:100px auto;
-padding:0 20px;
-line-height:1.7;
-font-size:18px;
-opacity:0.9;
-text-align:center;
+/* ========================= */
+/* 📄 DESCRIPTION (MATCH SCALE) */
+/* ========================= */
+
+.noom-description {
+    max-width: 900px;
+    margin: 20px auto; /* more vertical spacing */
+    padding: 0 20px;
+
+    line-height: 2;
+    font-size: 19px;
 }
 
 /* SECTION LABEL */
@@ -201,58 +203,205 @@ text-align:center;
 font-size:12px;
 letter-spacing:2px;
 text-transform:uppercase;
-margin-bottom:20px;
+margin-bottom:10px;
 opacity:0.5;
 text-align:center;
 }
 
-/* GALLERY */
-.noom-gallery{
-padding:0 60px 100px;
+/* ========================= */
+/* 🖼 GALLERY (BIGGER, BASTILLE SCALE) */
+/* ========================= */
+
+.noom-gallery {
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
+/* grid feels more “showcase” now */
+.gallery-grid {
+    padding-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
 }
 
-.gallery-grid img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:10px;
-transition:0.3s;
+/* bigger images */
+.gallery-grid img {
+    width: 100%;
+    height: 100%; /* was 200px */
+    object-fit: cover;
+    border-radius: 14px;
+
+    transition: 0.35s ease;
 }
 
-.gallery-grid img:hover{
-transform:scale(1.05) rotate(1deg);
-filter:saturate(1.3);
+/* more dramatic hover like Bastille */
+.gallery-grid img:hover {
+    transform: scale(1.08) rotate(1deg);
+    filter: saturate(1.4) brightness(1.05);
 }
 
-/* CTA SECTION */
-.game-cta{
-text-align:center;
-padding:80px;
+
+/* ========================= */
+/* 🎯 CTA SECTION (MORE PRESENCE) */
+/* ========================= */
+
+.game-cta {
+    text-align: center;
+    padding: 140px 20px; /* much bigger */
 }
 
-.game-cta a{
-padding:16px 40px;
-background:linear-gradient(90deg, #8fd3ff, #c084fc);
-color:black;
-text-decoration:none;
-font-weight:600;
-border-radius:30px;
-transition:0.3s;
+/* bigger button like Bastille */
+.game-cta a {
+    padding: 20px 60px;
+    font-size: 1.2rem;
+
+    background: linear-gradient(90deg, #8fd3ff, #c084fc);
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 40px;
+
+    transition: 0.3s;
 }
 
-.game-cta a:hover{
-transform:scale(1.05);
+.game-cta a:hover {
+    transform: scale(1.08);
+    filter: brightness(1.1);
 }
 
-/* FOOTER FEEL (OPTIONAL) */
-footer{
-text-align:center;
-padding:40px;
-opacity:0.6;
+/* ========================= */
+/* 🎯 CTA SECTION (MORE PRESENCE) */
+/* ========================= */
+
+.game-cta {
+    text-align: center;
+    padding: 140px 20px; /* much bigger */
+}
+
+/* bigger button like Bastille */
+.game-cta a {
+    padding: 20px 60px;
+    font-size: 1.2rem;
+
+    background: linear-gradient(90deg, #8fd3ff, #c084fc);
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 40px;
+
+    transition: 0.3s;
+}
+
+.game-cta a:hover {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2147483647;
+    pointer-events: auto;
+}
+
+#lightbox img {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 2147483647;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+
+/* ========================= */
+/* 🧾 FOOTER */
+/* ========================= */
+
+.site-footer {
+    background: #050505;
+    color: #dcdcdc;
+
+    padding: 60px 40px 30px;
+    margin-top: 100px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+
+    flex-wrap: wrap;
+}
+
+/* LEFT */
+.footer-logo {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* LINKS */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #bfbfbf;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* RIGHT */
+.footer-right {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.footer-small {
+    opacity: 0.5;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
 }

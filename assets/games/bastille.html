@@ -68,12 +68,40 @@
 <img id="lightbox-img">
 </div>
 
-<section class="game-cta">
+<div class="section-transition"></div>
+
+<section class="greed-section">
+    <div class="greed-bg"></div>
+
+  <div class="greed-content">
+    <h2 class="greed-title">THE GREED SHOW</h2>
+    <p class="greed-sub">PLAY THE GAMES, BUY THE MERCH, WIN THE PRIZE!</p>
+
+<button class="play-button" onclick="window.open('https://www.roblox.com/games/10746770962/BASTILLE', '_blank')">
+  ▶ PLAY
+</button>
+  </div>
+
+  <img src="../../assets/images/136214521236860.png" class="greed-character">
+
+    <img src="../../assets/images/GREEDPLUSHIE.webp" class="greed-plushie">
+    
+    <img src="../../assets/images/GREEDMERCH2.webp" class="greed-plushie2">
 
 
-<a href="https://www.roblox.com/games/10746770962/BASTILLE" target="_blank">
-Launch Experience
-</a>
+  <!-- 📢 TICKER -->
+<div class="ticker">
+  <div class="ticker-text">
+    BREAKING: PLAYER WINS NOTHING! • BIRTHDAY CAKE WASTED ON A FILTHY LOSER! • THAT CHASE SCENE WAS PRETTY GARBAGE! • OPTIONAL ENGINEERING EXPLODES! MILLIONS OF DOLLARS LOST! • SOMETHING SOMETHING BASTILLE • SOMETHING SOMETHING GREED • HONESTLY, IS ANYONE READING THIS? WHAT IS SOMETHING LIKE THIS DOING ON A WEBSITE? • PROBABLY NOT EVEN SEO KEYWORDS! • THIS IS JUST A BUNCH OF RANDOM TEXT TO FILL SPACE! • WHY NOT PUT SOME ACTUAL NEWS HERE? • WELL, TOO LATE NOW! • ENJOY THE GAMES, LOSER! • OH, AND MAKE SURE TO PLAY BASTILLE. PLEASE. WE NEED THIS TO BE A SUCCESS. • THANKS • BUY MY MERCH!
+  </div>
+</div>
+
+<!-- 📺 LIVE REACTION -->
+
+<!-- 💰 FAKE MERCH -->
+<div class="merch-tag">
+  OFFICIAL GREED MERCH™
+</div>
 
 </section>
 
@@ -149,6 +177,40 @@ elements.forEach((el) => {
     delay += textLength * 25 + 400;
 });
 </script>
+
+<script>
+const greedSection = document.querySelector('.greed-section');
+
+window.addEventListener('scroll', () => {
+    const rect = greedSection.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight * 0.75) {
+        greedSection.classList.add('active');
+    }
+});
+</script>
+
+ <footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <h3 class="footer-logo">Morendo Vivo™</h3>
+      <p class="footer-tagline">Games and services.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/work.html">Projects</a>
+      <a href="/about.html">Contact</a>
+    </div>
+
+    <div class="footer-right">
+      <p>©2022-2026 Morendo Vivo</p>
+      <p class="footer-small">All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
 
 </body>
 </html>
