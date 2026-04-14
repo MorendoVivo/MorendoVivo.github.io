@@ -25,26 +25,44 @@
 
     <header class="work-hero">
         <div class="work-hero-inner">
-            <h1>Client Work</h1>
-            <p>We've created immersive environments and experiences for various clients</p>
         </div>
     </header>
 
-    <section class="client-work">
-        <div class="client-card" data-theme="city-of-vice">
+        <section class="client-work">
+            <div class="client-card" data-theme="city-of-vice">
+                <div class="client-main">
+                    <img src="assets/work/CityOfVice/COVlogo.png" alt="City of Vice logo">
+                    <div class="client-info">
+                        <h2>City Of Vice</h2>
+                        <p>Miami map creation and asset design</p>
+                        <a href="https://www.roblox.com/games/119963002291522/City-of-Vice" target="_blank" class="cta">Play Experience</a>
+                    </div>
+                </div>
+                <div class="client-gallery">
+                    <img src="assets/images/COV/COV1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+                    <img src="assets/images/COV/COV2.png" alt="Screenshot 2" onclick="openLightbox(this)">
+                    <img src="assets/images/COV/COV3.png" alt="Screenshot 3" onclick="openLightbox(this)">
+                    <img src="assets/images/COV/COV4.png" alt="Screenshot 4" onclick="openLightbox(this)">
+                </div>
+            </div>
+
+
+
+
+            <div class="client-card" data-theme="jumpgame">
             <div class="client-main">
-                <img src="assets/work/CityOfVice/COVlogo.png" alt="City of Vice logo">
+                <img src="assets/images/mountaingame.webp" alt="Mountain Game logo">
                 <div class="client-info">
-                    <h2>City Of Vice</h2>
-                    <p>Miami map creation and asset design</p>
-                    <a href="https://www.roblox.com/games/119963002291522/City-of-Vice" target="_blank" class="cta">Play Experience</a>
+                    <h2>Climb A MOUNTAIN!</h2>
+                    <p>Expansive obby scenery</p>
                 </div>
             </div>
             <div class="client-gallery">
-                <img src="assets/images/COV/COV1.png" alt="Screenshot 1" onclick="openLightbox(this)">
-                <img src="assets/images/COV/COV2.png" alt="Screenshot 2" onclick="openLightbox(this)">
-                <img src="assets/images/COV/COV3.png" alt="Screenshot 3" onclick="openLightbox(this)">
-                <img src="assets/images/COV/COV4.png" alt="Screenshot 4" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain2.png" alt="Screenshot 2" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain3.png" alt="Screenshot 3" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain4.png" alt="Screenshot 4" onclick="openLightbox(this)">
+                <img src="assets/images/MOUNTAIN/mountain5.png" alt="Screenshot 5" onclick="openLightbox(this)">
             </div>
         </div>
 
@@ -67,23 +85,24 @@
             </div>
         </div>
 
-            <div class="client-card" data-theme="jumpgame">
+        <div class="client-card" data-theme="funny-man-rng">
             <div class="client-main">
-                <img src="assets/images/mountaingame.webp" alt="Mountain Game logo">
+                <img src="assets/images/FUNNYMAN/funnymanlogo.png" alt="Funny Man RNG logo">
                 <div class="client-info">
-                    <h2>Climb A MOUNTAIN!</h2>
-                    <p>Expansive obby scenery</p>
+                    <h2>Funny Man RNG</h2>
+                    <p>Game concept and design</p>
+                    <a href="https://www.roblox.com/games/YOUR-GAME-ID-HERE" target="_blank" class="cta">Play Experience</a>
                 </div>
             </div>
             <div class="client-gallery">
-                <img src="assets/images/MOUNTAIN/mountain1.png" alt="Screenshot 1" onclick="openLightbox(this)">
-                <img src="assets/images/MOUNTAIN/mountain2.png" alt="Screenshot 2" onclick="openLightbox(this)">
-                <img src="assets/images/MOUNTAIN/mountain3.png" alt="Screenshot 3" onclick="openLightbox(this)">
-                <img src="assets/images/MOUNTAIN/mountain4.png" alt="Screenshot 4" onclick="openLightbox(this)">
-                <img src="assets/images/MOUNTAIN/mountain5.png" alt="Screenshot 5" onclick="openLightbox(this)">
+                <img src="assets/images/FUNNYMAN/funnyman1.png" alt="Screenshot 1" onclick="openLightbox(this)">
+                <img src="assets/images/FUNNYMAN/funnyman2.png" alt="Screenshot 2" onclick="openLightbox(this)">
+                <img src="assets/images/FUNNYMAN/funnyman3.png" alt="Screenshot 3" onclick="openLightbox(this)">
+                <img src="assets/images/FUNNYMAN/funnyman4.png" alt="Screenshot 4" onclick="openLightbox(this)">
+                <!-- Replace above image paths with your actual images -->
             </div>
         </div>
-
+        
     </section>
 
     <!-- Lightbox -->
@@ -141,6 +160,7 @@
             'city-of-vice': 'url("assets/images/COV/COV1.png")',
             'the-basement': 'url("assets/images/BASEMENT/BASEMENT1.png")',
             'jumpgame': 'url("assets/images/MOUNTAIN/mountain1.png")',
+            'funny-man-rng': 'url("assets/images/FUNNYMAN/funnyman1.png")',
             'default': 'none',
 
         };
